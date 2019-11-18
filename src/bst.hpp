@@ -22,18 +22,12 @@ public:
     // Performs an inorder traversal
     // returns: pointer to a vector containing the tree traversal
     std::vector<T> *inorder(void);
-
-    std::vector<int> inorder_helper(Node<T>* currentNode);
     // Performs an postorder traversal
     // returns: pointer to a vector containing the tree traversal
     std::vector<T> *postorder(void);
-
-    std::vector<int> postorder_helper(Node<T>* currentNode);
     // Performs an preorder traversal
     // returns: pointer to a vector containing the tree traversal
     std::vector<T> *preorder(void);
-
-    std::vector<T> *preorder_helper(Node<T>* currentNode);
     // Searches the tree for a given value
     // param: the data to search for
     // returns: a pointer to the node containing the data or NULL if the data
@@ -383,6 +377,8 @@ int BST<T>::count_helper(Node<T>* currentNode)
     if (currentNode->get_left() != NULL){
         count += count_helper(currentNode->get_left());
     }
+
+    // If right exists add to count and call recursive function
     if (currentNode->get_right() != NULL){
         count += count_helper(currentNode->get_right());
     }
